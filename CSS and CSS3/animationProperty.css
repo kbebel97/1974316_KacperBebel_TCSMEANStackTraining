@@ -1,0 +1,33 @@
+#d1 {
+    padding: 20px;
+    border: solid red 2px;
+    margin: 10px;
+    width: 120px;
+    height: 150px;
+    float: left;
+    border-radius: 100%;
+    animation-name: myanimation;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    background-color: red;
+    text-align: center;  
+}
+
+
+@keyframes myanimation {
+    0% {background-color: red;}
+    10% {background-color: seagreen; margin-bottom: 300px; margin-left: 300px;}
+    20% {background-color: red; margin:0}
+    30% {background-color: orange; margin-top: 300px; margin-left: 300px;}
+    40% {background-color: red; margin: 0}
+    50% {background-color: blue; margin-top: 300px; margin-right: 300px;}
+    60% {background-color: red; margin: 0}
+    70% {background-color: purple; margin-bottom: 300px; margin-right: 300px;}
+    80% {background-color: red; margin: 0}
+}
+/* 
+#d1:hover{
+    animation-name: myanimation;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;  
+} */
