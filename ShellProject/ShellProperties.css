@@ -1,0 +1,35 @@
+#header{
+    padding: 30px;
+    font-size: larger;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    border-bottom: black solid 5px;
+}
+
+#footer{
+    padding: 30px;
+    font-size: larger;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    border-top: black solid 5px;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    background-color: seashell;
+    margin: 0;
+}
+
+#main_content{
+    display: flex;
+    flex-direction: row;
+    margin: 30px;
+}
+
+.panel{
+    margin: 10px;
+    padding: 10px;
+    border: black 5px solid;
+    border-radius: 10px;
+}
