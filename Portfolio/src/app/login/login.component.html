@@ -1,0 +1,21 @@
+<div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+  <div style="padding: 10px; display: flex; flex-direction: column; border: 3px black solid; border-radius: 10px;">
+    <div style="text-align: center; font-size: x-large; height: 2em; margin-bottom: 0; display: flex;justify-content: center; align-items: center; margin-bottom: 10px;"><h1>Login</h1></div>
+    <div style="text-align: center; font-size: x-large; height: 2em; margin-bottom: 0; display: flex;justify-content: flex-end; align-items: center; margin-bottom: 10px;">
+      <button (click)="register()" class="btn btn-primary">
+      <h6 style="margin: 0;">Register?</h6>
+      </button>
+    </div>
+    <div id="msg" style="display: none; flex-direction: column; row-gap: .5em; margin-bottom: .5em;">
+      <!-- <div style="height: 2em; padding">{{msg}}</div> -->
+    </div>
+    <form [formGroup]="loginRef" (ngSubmit)="checkUser()" style="display: flex; flex-direction: column; row-gap: .5em;">
+        <input type="text" style="font-size: 2em; border: 1px solid black; border-radius: 10px;" formControlName="username" placeholder="Username" />
+        <input type="password" style="font-size: 2em; border: 1px solid black; border-radius: 10px;" formControlName="password" placeholder="Password"/>
+        <div style="display: flex; flex-direction: row; column-gap: .2em;">
+          <input type="submit" style="flex: 1; width: 100%" class="btn btn-primary" value="submit"/>
+          <input type="reset" style="flex: 1; width: 100%" class="btn btn-danger" value="reset"/>
+        </div>
+    </form>
+  </div>
+</div>

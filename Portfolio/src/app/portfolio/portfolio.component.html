@@ -1,0 +1,52 @@
+<div style="display: flex; flex-direction: column; height: 100%; width: 100%;">
+<div style="flex: 1; justify-content: center; align-items: center; display: flex; background-color: seashell; border-bottom: 1px black solid;">
+  <h1>My Portfolio</h1>
+</div>
+<div style="flex: 1; justify-content: space-between; align-items: center; display: flex; padding: 20px; border-bottom: 1px black solid;">
+  <div style="padding: 5px; font-size: xx-large;">
+    Welcome {{user.username}}!
+  </div>
+  <div style="text-align: center; font-size: x-large; height: 2em; margin-bottom: 0; display: flex; justify-content: flex-end; align-items: center; margin-bottom: 10px;">
+    <button (click)="login()" class="btn btn-primary">
+    <h6 style="margin: 0;">Logout</h6>
+    </button>
+  </div>
+</div>
+<div style="display: flex; justify-content: center; align-items: center; border-bottom: 1px black solid;">
+  <div style="flex: 2; display: flex; justify-content: center; align-items: center; padding: 20px; flex-direction: column; width: fit-content;">
+    <div style="display: flex; justify-content: center; align-items: center; padding: 10px;">
+      <h2 style="margin: 0;">Enter Contact:</h2>
+    </div>
+    <div id="msg" style="display: none; flex-direction: column; row-gap: .5em; margin-bottom: .5em;">
+    </div>
+    <form [formGroup]="contactRef" (ngSubmit)="addContact()" style="display: flex; flex-direction: column; row-gap: .5em;">
+      <input type="text" style="font-size: 2em; border: 1px solid black; border-radius: 10px;" formControlName="name" placeholder="name" />
+      <input type="text" style="font-size: 2em; border: 1px solid black; border-radius: 10px;" formControlName="number" placeholder="number"/>
+      <div style="display: flex; flex-direction: row; column-gap: .2em;">
+        <input type="submit" style="flex: 1; width: 100%" class="btn btn-primary" value="submit"/>
+        <input type="reset" style="flex: 1; width: 100%" class="btn btn-danger" value="reset"/>
+      </div>
+  </form>
+  </div>
+</div>
+<div style="flex: 6; justify-content: center; align-items: flex-start; display: flex; padding: 20px;">
+  <table id="project_list" *ngIf="user.contact_details.length > 0" style="border: 3px black solid; width: 30%; background-color: seashell; display: flex; flex-direction: column; border: black solid 1px; border-radius: 5px;">
+    <thead>
+        <tr style="display: flex; flex-direction: row; padding-top: 5px; padding-bottom: 5px;">
+            <th style="flex: 1; display: flex; justify-content: center; align-items: center;">
+                <h2 style="margin: 0;">Name</h2>
+            </th>
+            <th style="flex: 1; display: flex; justify-content: center; align-items: center;">
+                <h2 style="margin: 0;">Phone No.</h2>
+            </th>
+        </tr>
+    </thead>
+    <tbody style="justify-content: space-evenly;">
+      <div *ngFor="let contact of user.contact_details" style="display: flex; flex-direction: row; width: 100%; padding: 5px; align-items: center; justify-content: center;">
+        <div style="flex: 1; text-align: center;">{{contact.name}}</div>
+        <div style="flex: 1; text-align: center;">{{contact.number}}</div>
+      </div>
+    </tbody>
+ </table>
+</div>
+</div>
