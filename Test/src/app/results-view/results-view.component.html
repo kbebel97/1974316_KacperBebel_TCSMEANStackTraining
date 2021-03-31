@@ -1,0 +1,25 @@
+<div style="display: flex; height: 100%; flex-direction: column; background-color: seashell;" *ngIf="current_question">
+  <div style="display: flex; justify-content: flex-start; align-items: flex-start;">
+    <h1 style="justify-content: center; align-items: center; display: flex; margin: 0; padding: 1em; width: 100%; ">{{current_question.question}}</h1>
+  </div>
+  <div *ngIf="current_question.text && isArray(current_question.text)" style="padding: 1em; border-bottom: black solid 3px; border-top: solid 3px black; background-color: white;">
+    <h5 *ngFor="let line of current_question.text" style="margin: 0; font-size: larger; padding: 3px;">{{line}}</h5>
+  </div>
+  <div *ngIf="current_question.text && !isArray(current_question.text)" style="padding: 1em; border-bottom: black solid 3px; border-top: solid 3px black; background-color: white;">
+    <h5 style="margin: 0; font-size: larger; padding: 3px;">{{current_question.text}}</h5>
+  </div>
+  <mat-radio-group  style="display: flex; justify-content: flex-start; flex-direction: column; padding: 1em;"
+    aria-labelledby="example-radio-group-label"
+    class="example-radio-group">
+    <mat-radio-button class="example-radio-button" style="padding: 3px; font-size: large;" *ngFor="let choice of current_question.choices; let i = index" [value]="choice"  [checked]="check_answer(current_question) == i" [disabled]="true" [ngStyle]="{'background-color': i == current_question.answer ? 'yellow' : 'transparent' }" >{{choice}}</mat-radio-button>
+  </mat-radio-group>
+  <div class="row" style="padding : 1em">
+    <div class="col-6" style="display: flex; justify-content: flex-start; align-items: center;">
+      <button mat-raised-button color="primary" *ngIf="questions.indexOf(this.current_question) != 0" (click)="previous()">previous</button>
+    </div>
+    <div class="col-6" style="display: flex; justify-content: flex-end; align-items: center;">
+      <button mat-raised-button color="primary" *ngIf="questions.indexOf(this.current_question) != questions.length - 1" (click)="next()">next</button>
+      <button mat-raised-button color="primary" *ngIf="questions.indexOf(this.current_question) == questions.length - 1" (click)="finish()">finish</button>
+    </div>
+  </div>
+</div>
