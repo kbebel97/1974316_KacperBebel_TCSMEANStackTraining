@@ -121,6 +121,9 @@ let error = `
                 </div>
             </div>
         </div>
+        <form action="" method="get" style="display: flex; flex-direction: column; row-gap: .5em;" >
+            <input type="submit" style="flex: 1; width: 100%" class="btn btn-primary" value="Delete"/>
+        </form>
     </body>
 </html>
 `

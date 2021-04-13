@@ -12,7 +12,7 @@ function storeInSession(entry) {
 
 function retrieveFromSession(){
     var allEntries = sessionStorage.getItem("allEntries");
-    return JSON.parse(allEntries)
+    return JSON.parse(allEntries);
 }
 
 function onFormSubmit(){
