@@ -1,3 +1,17 @@
+let obj = require("mongoose"); // load the module
+obj.promise = global.Promise;   //creating the reference 
+let url = "mongodb://localhost:27017/meanstack";
+const mongooseDbOption = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}
+
+let messageSchema = obj.Schema({
+    _id : String,
+    username : String,
+    msg: String,
+});
+
 const path = require('path');
 const http = require('http');
 const express = require("express");
@@ -32,6 +46,17 @@ io.on('connection', socket => {
     //Listen for chatMessage
     socket.on('chatMessage', msg => {
         const user = getCurrentUser(socket.id);
+        obj.connect(url, mongooseDbOption); //ready to connect
+        let db = obj.connection; // connected to database
+        db.on("error", (err)=> console.log(err));
+        db.once("open", ()=> {
+            let msg_ = obj.model("Msg", messageSchema);
+            let msg_1 = new msg_({_id : user.id, username : user.username, msg : msg});
+            msg_1.save().then((result)=> {
+                console.log(result);
+                obj.disconnect();
+            })
+        })
         io.to(user.room).emit('message', formatMessage(user.username, msg));
         console.log(msg);
     })
