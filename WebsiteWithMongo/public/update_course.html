@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add</title>
+    <link rel="stylesheet" href="../css/add_course.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body  style="background-color: #0275d8;">    
+    <div style="display: flex; justify-content: flex-start; align-items: center; height: fit-content; flex-direction: column; margin: 20px; padding: 20px; border: solid black 3px; border-radius: 10px; background-color: seashell;">
+        <div style="display: flex; flex-direction: row; justify-content: flex-start; padding: 5px; width: 100%"><a class="btn btn-primary" href="/index.html">Return</a></div>
+        <div style="display: flex; flex-direction: row; justify-content: center; padding: 5px; width: 100%">
+            <h1 style="margin: 0px">Update Course</h1>
+        </div>
+        <form action="/update" method="POST" style="display: flex; flex-direction: column; row-gap: .5em;" >
+            <input type="text" style="font-size: 2em; border: 1px solid black; border-radius: 10px;" placeholder="ID" name="Id" />
+            <input type="text" style="font-size: 2em; border: 1px solid black; border-radius: 10px;" placeholder="Name" name="Name"/>
+            <input type="text" style="font-size: 2em; border: 1px solid black; border-radius: 10px;" placeholder="Description" name="Description"/>
+            <input type="text" style="font-size: 2em; border: 1px solid black; border-radius: 10px;" placeholder="Amount" name="Amount"/>
+            <div style="display: flex; flex-direction: row; column-gap: .2em;">
+            <input type="submit" style="flex: 1; width: 100%" class="btn btn-primary" value="update"/>
+            <input type="reset" style="flex: 1; width: 100%" class="btn btn-danger" value="reset"/>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
